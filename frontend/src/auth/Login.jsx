@@ -25,17 +25,18 @@ function Login() {
        
         try {
             const response = await login(email, password);
-           
+        //    console.log(response);
+        //    console.log('role',response.data.user.role);
             toast.dismiss(toastLoading);
             toast.success('Login Successfully');
             if (response.data.user.role === 'admin') {
                 // navigate('/dashboard/admin');
-                navigate('/home');
+                navigate(from);
             } else if (response.data.user.role === 'organizer') {
                 navigate('/dashboard/organizer');
             } else {
-                // navigate(from);
-                navigate('/home');
+                navigate(from);
+                // navigate('/home');
             }
         } catch (error) {
             toast.dismiss(toastLoading);

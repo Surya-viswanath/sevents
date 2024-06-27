@@ -26,7 +26,7 @@ import Paymentpage from '../Common/Payment/Paymentpage'
 import About from '../component/About'
 // import Login from './auth/Login'
 import Register from '../auth/Register'
-import Dashboard from '../Common/Dashboard'
+// import Dashboard from '../Common/Dashboard'
 import PaymentSuccess from '../Common/Payment/PaymentSuccess'
 import UserBookings from '../Common/Payment/userBookings/UserBookings'
 import Login from '../auth/Login'
@@ -35,20 +35,33 @@ import Booking from '../Common/booking/Booking'
 import CustomEventUser from '../Common/dashboard/CustomEventUser'
 import CustomEventDashboard from '../Common/dashboard/CustomEventDashboard'
 import DashboardAdminHome from '../Admin/dashboard/DashboardAdminHome'
+
+import AllUsers from '../Admin/users/AllUsers'
+import DashboardHome from '../dashboard/DashboardHome'
+import Dashboard from '../layout/Dash/Dashboard'
+import Main from '../layout/Main/Main'
+
+
 import PrivateRouter from './PrivateRoute'
-
-
+import EventAdd from '../Manager/Eventadd'
+import AdminRouter from './AdminRoute'
+import Home from '../home/Home'
 function Routerc() {
   return (
    
 <BrowserRouter>
 <Routes>
-<Route path='/' element={<><Menu/><Banner/></>}></Route>
+<Route path="/all" element={<AdminRouter><AllUsers/></AdminRouter>} />
+{/* <Route path="/" element={<Main />} errorElement={<ErrorPage />}> */}
+<Route path="/" element={<Main />}>
+children: [
+
+<Route path='/' element={<><Home/></>}></Route>
 {/* <Route path='/signup' element={<><Menu/><Signup/></>}></Route> */}
-<Route path='/login' element={<><Menu/><Login/></>}></Route>
-<Route path='/signup' element={<><Menu/><Register/></>}></Route>
+<Route path='/login' element={<><Login/></>}></Route>
+<Route path='/register' element={<><Register/></>}></Route>
 {/* <Route path='/login' element={<><Menu/><Login/></>}></Route> */}
-<Route path='/admin' element={<><Menu/><Adminlogin/></>}></Route>
+{/* <Route path='/admin' element={<><Menu/><Adminlogin/></>}></Route> */}
 <Route path='/adminop' element={<><Adminmenu/><Adminbanner/></>}></Route>
 {/* <Route path='/users' element={<><Adminmenu/><User/></>}></Route>
 <Route path='/admins' element={<><Adminmenu/><Managers/></>}></Route>
@@ -58,31 +71,74 @@ function Routerc() {
 <Route path='/viewevent' element={<><Menu/><Events/></>}></Route>
 <Route path='/event' element={<><Menu1/><EventList/></>}></Route>
 <Route path='/myeve/:email' element={<><Menu1/><Myevent/></>}></Route> */}
-<Route path='/home' element={<><Menu1/><Banner/></>}></Route>
+{/* <Route path='/home' element={<><Main/></>}></Route> */}
 <Route path='/eventadd' element={<><Addevent/></>}></Route>
-<Route path='/add' element={<><Eventadd/></>}></Route>
+{/* <Route path='/add' element={<><Eventadd/></>}></Route> */}
 
-<Route path='/eve' element={<><Displayevents/></>}></Route>
+<Route path='/events' element={<><Displayevents/></>}></Route>
 <Route path='/event-details/:_id' element={<><Eventdetails/></>}></Route>
 <Route path='/payment/:_id' element={<><Paymentpage/></>}></Route>
 <Route path='/payment/success/:tranId' element={<><PaymentSuccess/></>}></Route>
 <Route path='/payment/fail/:transId' element={<><PaymentFail/></>}></Route>
 <Route path='/my-bookings' element={<><UserBookings/></>}></Route>
-<Route path='/dashboard/customEvent' element={<><CustomEventUser/></>}></Route>
+{/* <Route path='/dashboard/customEvent' element={<><CustomEventUser/></>}></Route> */}
 
+
+{/* <Route path='/dashboard' element={<><Dashboard/></>}></Route> */}
+{/* <Route path='/dashboard/user' element={<><DashboardHome/></>}></Route> */}
 {/* bookings */}
 
 <Route path='/booking' element={<><Booking/></>}></Route>
 <Route path='/about' element={<><About/></>}></Route>
-{/* <Route path='/dashboard' element={<><Dashboard/></>}></Route> */}
+
 {/* admin*/}
 
-<Route path='/custom-event-request' element={<><CustomEventDashboard/></>}></Route>
-<Route path='/adminh' element={<><DashboardAdminHome/></>}></Route>
+{/* <Route path='/custom-event-request' element={<><CustomEventDashboard/></>}></Route> */}
+{/* <Route path='/dashboard/admin' element={<><DashboardAdminHome/></>}></Route> */}
+{/* <Route path='/all-users' element={<><AllUsers/></>}></Route> */}
+{/* <Route path='/eve' element={<><Allevents/></>}></Route> */}
+]
+</Route>
 
-<Route path='/events' element={<><Allevents/></>}></Route>
-
-
+<Route
+        path="/dashboard"
+        element={
+          <PrivateRouter>
+            <Dashboard />
+          </PrivateRouter>
+        }
+      >
+        <Route path="user" element={<PrivateRouter><DashboardHome /></PrivateRouter>} />
+        {/* <Route path="custom-event-booking" element={<PrivateRouter><CustomEventBooking /></PrivateRouter>} /> */}
+         <Route path="add-event" element={<PrivateRouter><EventAdd/></PrivateRouter>} />
+        {/* <Route
+          path="edit-event/:id"
+          element={<PrivateRouter><UpdateEvent /></PrivateRouter>}
+          loader={({ params }) => fetch(`https://dream-craft-server.vercel.app/event/${params.id}`)}
+        /> */}
+        {/* <Route path="settings" element={<PrivateRouter><Settings /></PrivateRouter>} /> */}
+        {/* <Route path="profile" element={<PrivateRouter><Profile /></PrivateRouter>} /> */}
+        {/* <Route path="organizer-request" element={<PrivateRouter><OrganizerRequest /></PrivateRouter>} /> */}
+        <Route path="custom-event-request" element={<AdminRouter><CustomEventDashboard /></AdminRouter>} />
+        <Route path="admin" element={<AdminRouter><DashboardAdminHome /></AdminRouter>} />
+        {/* <Route path="wishList" element={<PrivateRouter><Wishlist /></PrivateRouter>} /> */}
+        <Route path="customEvent" element={<PrivateRouter><CustomEventUser /></PrivateRouter>} />
+        {/* <Route path="my-bookings" element={<PrivateRouter><UserBookings /></PrivateRouter>} /> */}
+        {/* <Route path="payment-history" element={<PrivateRouter><PaymentHistory /></PrivateRouter>} />
+        <Route path="cart" element={<PrivateRouter><Cart /></PrivateRouter>} /> */}
+        {/* <Route path="all-users" element={<AdminRouter><AllUsers/></AdminRouter>} /> */}
+        {/* <Route
+          path="edit-user/:id"
+          element={<AdminRouter><EditUser /></AdminRouter>}
+          loader={({ params }) => fetch(`https://dream-craft-server.vercel.app/user/${params.id}`, { method: 'POST' })}
+        /> */}
+        <Route path="events" element={<AdminRouter><Allevents/></AdminRouter>} />
+        {/* <Route path="booked-tickets" element={<AdminRouter><BookedTickets /></AdminRouter>} />
+        <Route path="add-product" element={<AdminRouter><AddProduct /></AdminRouter>} />
+        <Route path="products" element={<AdminRouter><AllProducts /></AdminRouter>} />
+        <Route path="product-orders" element={<AdminRouter><ShopOrders /></AdminRouter>} />
+        <Route path="all-mails" element={<AdminRouter><Mails /></AdminRouter>} /> */}
+      </Route>
 
 </Routes>
 </BrowserRouter>  

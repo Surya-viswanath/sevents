@@ -10,9 +10,12 @@ function Menu() {
         <Container  style={{marginLeft:'10%'}}>
        
         <Link to="/admin" style={{textDecoration:'none'}}><img src={logo1} style={{width:'100px',height:'70px'}}/></Link>
+        
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto" style={{marginLeft:'10%'}}>
+       
+        {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
+       
+          <Nav className="me-auto" style={{marginLeft:'10%',color:'black'}}>
          
             <Nav.Link href={'/eve'} >Events</Nav.Link>
             <Nav.Link href={'/about'} >About</Nav.Link>
@@ -23,7 +26,7 @@ function Menu() {
             </Nav>
            
           
-        </Navbar.Collapse>
+        {/* </Navbar.Collapse> */}
         </Container>
         </Navbar>
     </div>

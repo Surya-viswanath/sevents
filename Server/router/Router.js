@@ -25,6 +25,8 @@ const CustomEvents = require('../event/events/customEventPost');
 const inboxByUser = require('../event/events/inboxByUser');
 const findCustomEvent = require('../event/events/findCustomEvent');
 const updatePendingStatus = require('../event/events/updatePendingStatus');
+const allUsers = require('../controller/user/findalluser');
+
 
 
 
@@ -61,6 +63,5 @@ router.route('/event/:id').get(singleEvent);
 //admin//
 router.route('/custom-event').get(findCustomEvent)
 router.route('/custom-event/:id').patch(updatePendingStatus)
-
-
+router.route('/users').get(allUsers)
 module.exports =router

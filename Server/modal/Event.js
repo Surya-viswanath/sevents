@@ -17,7 +17,7 @@ const EventSchema =mongoose.Schema({
         },
         'date': {type: Date, required: true},
         'createdAt': { type: Date, default: new Date()},
-
+         'email' : {type: String, required: true},
 },
 {versionKey: false}
 );

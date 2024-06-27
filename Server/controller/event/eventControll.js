@@ -1,9 +1,10 @@
 
 const Events = require("../../modal/Event");
 const addEvent = async (req, res) => {
-    const { title, type, location, speakers, sponsor, description, seat, image, date} = req.body;
+   
+    const { title, type, location, speakers, sponsor, description, seat, image, date,email} = req.body;
     try {
-        const newEvent = new Events({ title, type, location, speakers, sponsor, description, seat, image, date });
+        const newEvent = new Events({ title, type, location, speakers, sponsor, description, seat, image, date,email });
         const savedEvent = await newEvent.save();
         res.status(201).json(savedEvent);
     } catch (error) {

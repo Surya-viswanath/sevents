@@ -30,9 +30,9 @@ const email = user.email;
                     description, 
                     seat, 
                     image: imageResult, 
-                    date 
+                    date ,email
                 };
-                await axios.post('http://localhost:4000/add-event', newEvent,email);
+                await axios.post('http://localhost:4000/add-event', newEvent);
                 reset();
                 toast.dismiss(loadingToast);
                 toast.success("Event successfully added");
