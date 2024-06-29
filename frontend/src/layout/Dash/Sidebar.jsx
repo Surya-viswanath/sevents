@@ -240,13 +240,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     path: "/",
                                 }}
                             />
-                            {/* <SidebarSubMenu
+                            <SidebarSubMenu
                                 menu={{ name: "Seetings", icon: "LuSettings" }}
                                 subMenu={[
                                     { name: "Company", path: "settings" },
                                     { name: "Mail", path: "email-settings" },
                                 ]}
-                            ></SidebarSubMenu> */}
+                            ></SidebarSubMenu>
                         </ul>
                     </nav>
                 </div>

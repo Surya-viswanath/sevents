@@ -21,7 +21,7 @@ const DashboardHome = () => {
 
   const fetchReviewsCount = async () => {
     const response = await axios.get(
-      `https://dream-craft-server.vercel.app/review/${user?.email}`
+      `http://localhost:4000/review/${user?.email}`
     );
     if (response.status === 200) {
       setTotalReview(response.data.length);
@@ -30,7 +30,7 @@ const DashboardHome = () => {
 
   const fetchBookingsCount = async () => {
     const response = await axios.get(
-      `https://dream-craft-server.vercel.app/order/${user?.email}`
+      `http://localhost:4000/order/${user?.email}`
     );
     if (response.status === 200) {
       setTotalBookings_Payment(response.data.length);
@@ -39,7 +39,7 @@ const DashboardHome = () => {
 
   const fetchProductsOrderCount = async () => {
     const response = await axios.get(
-      `https://dream-craft-server.vercel.app/product-orders/${user?.email}`
+      `http://localhost:4000/product-orders/${user?.email}`
     );
     if (response.status === 200) {
       setTotalProductsOrder(response.data.length);

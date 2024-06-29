@@ -5,7 +5,7 @@ const jwttoken = require('../Token/token');
 const protect = require('../Middlewear/Tocken');
 const login = require('../controller/Login');
 
-const { getevents, Createvents, deleteevent } = require('../controller/Eventss');
+// const { getevents, Createvents, deleteevent } = require('../controller/Eventss');
 const { adminSignup } = require('../controller/Adminsignup');
 const adminlogin = require('../controller/Adminlogin');
 
@@ -25,9 +25,16 @@ const CustomEvents = require('../event/events/customEventPost');
 const inboxByUser = require('../event/events/inboxByUser');
 const findCustomEvent = require('../event/events/findCustomEvent');
 const updatePendingStatus = require('../event/events/updatePendingStatus');
-const allUsers = require('../controller/user/findalluser');
 
+const postRequest = require('../controller/organizer-rqst/postRequest');
+const checkPendingRequest = require('../controller/organizer-rqst/checkPendingRequest');
+const requestReject = require('../controller/organizer-rqst/requestReject');
+const requestAccept = require('../controller/organizer-rqst/requestAccept');
+const findAll = require('../controller/organizer-rqst/FindallRequest');
 
+const { allUsers, deleteUser } = require('../controller/user/findalluser');
+const allPaymentHistory  = require('../controller/payment/allPaymentHistory');
+const { deleteevent } = require('../controller/Event');
 
 
 
@@ -41,7 +48,16 @@ router.route('/Signupclient').post(userSignUp)
 router.route('/login').post(userSignIn)
 router.route('/token-verify').post(authVerify)
 
+
+
 router.route('/order').post(payment)
+router.route('/orders/:email').get(allPaymentHistory)
+router.route('/bookings').get(findAll)
+// router.route('/orders/:id').get(PaymentHistory)
+
+
+
+
 
 router.route('/adminlogin').post(adminlogin)
 router.route('/managerlogin').post(managerlogin)
@@ -51,17 +67,26 @@ router.route('/getclient').get(getclient)
 router.route('/getmanager').get(getmanager)  
 router.route('/deletemanager/:id').delete(deletemanager)
 router.route('/delete/:id').delete(deleteclient)
-router.route('/eventcreate').post(Createvents)
-router.route('/getevent').get(getevents)  
-router.route('/deleteevent/:id').delete(deleteevent)
+
+
+router.route('/delete-event/:id').delete(deleteevent)
 router.route('/custom-event').post(CustomEvents)
 router.route('/custom-event/inbox').get(inboxByUser)
 
 router.route('/add-event').post(addEvent);
 router.route('/events').get(Getevent);
 router.route('/event/:id').get(singleEvent);
+
+
+
+router.route('/request-organizer/accept/:id').put(requestAccept)
+router.route('/request-organizer/reject/:id').put(requestReject)
+router.route('/request-organizer').post(postRequest)
+router.route('/request-organizer').get(findAll)
+router.route('/check-pending-request').get(checkPendingRequest)
 //admin//
 router.route('/custom-event').get(findCustomEvent)
 router.route('/custom-event/:id').patch(updatePendingStatus)
 router.route('/users').get(allUsers)
+router.route('/delete-user/:id').delete(deleteUser)
 module.exports =router

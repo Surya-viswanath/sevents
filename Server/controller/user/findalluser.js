@@ -1,31 +1,22 @@
 
 const Usereve = require ("../../modal/User.js");
-
 const allUsers = async (req, res) => {
-    let query = {
-        role: 'user'
-    }
-    const filter = req.query
-    if (filter?.id) {
-        query._id = filter.id
-    }
-    
-    try {
-        const result = await findAllUsers(query)
-        res.send(result)
-    } catch (error) {
-        return res.status(error?.status || 500).send(error.message)
-    }
-}
-
-const findAllUsers = async (query) => {
-    try {
-        const cursor = await Usereve.find(query)
-        return cursor
-    } catch (error) {
-        console.log(error)
-        throw error
-    }
+  const collectionList = await Usereve.find();
+  res.json(collectionList);
 };
 
-module.exports = allUsers;
+
+
+const deleteUser = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedList = await Usereve.findByIdAndDelete(id);
+    if (!deletedList) {
+      return res.status(404).json({ message: "List not found" });
+    }
+    res.json({ message: "List deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+module.exports = {allUsers,deleteUser};

@@ -103,10 +103,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                                 name: "Add Event",
                                                 path: "add-event",
                                             },
-                                            {
-                                                name: "All Events",
-                                                path: "events",
-                                            },
+                                            // {
+                                            //     name: "All Events",
+                                            //     path: "events",
+                                            // },
                                         ]}
                                     ></SidebarSubMenu>
 
