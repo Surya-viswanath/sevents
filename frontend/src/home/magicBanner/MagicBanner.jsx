@@ -41,7 +41,7 @@ const MagicBanner = () => {
   return (
     <div className="mt-12 lg:mt-10">
       <div className={`carousel ${isNext ? "next" : ""} ${isPrev ? "prev" : ""}`}>
-        <div className="list">
+        <div className="list"  >
           {[img1, img2, img3, img4].map((img, index) => (
             <div
               className="item"
@@ -54,7 +54,7 @@ const MagicBanner = () => {
                 alt={`Slide ${index + 1}`}
               />
 
-              <div className="content">
+              <div className="content" >
                 {/* 
                 <div className="author backdrop-brightness-50 w-[38%]">
                   <p className="pl-4">Dream Craft Events</p>
@@ -73,7 +73,7 @@ const MagicBanner = () => {
                 {/* using tailwind  */}
                 <div>
                   <div>
-                    <p className="text-xl ml-1 font-semibold tracking-wider text-slate-300">Dream Craft Events</p>
+                    <p className="text-xl ml-1 font-semibold tracking-wider text-slate-300">Sun Flower Events</p>
                   </div>
                   <div className="my-5"><h1 className="text-3xl lg:text-6xl font-bold text-slate-200">Our Events</h1></div>
                   <div className="my-5"><h1 className="drop-shadow-2xl text-lime-500 text-5xl lg:text-7xl font-bold">Book Now!</h1></div>
@@ -88,7 +88,7 @@ const MagicBanner = () => {
                 <Link to="/events">
                   <button
                     type="button"
-                    className="mt-14 text-white bg-gradient-to-r from-rose-700 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-7 py-2 text-center  mb-2"
+                    className="mt-3 text-white bg-gradient-to-r from-rose-700 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-lg px-2 py-2.5 text-center  mb-2"
                   >
                     See More
                   </button>
@@ -99,7 +99,7 @@ const MagicBanner = () => {
           ))}
         </div>
         {/* Thumbnails */}
-        <div className="thumbnail">
+        <div className="thumbnail" >
           {[img1, img2, img3, img4].map((img, index) => (
             <div
               key={index}
@@ -125,7 +125,7 @@ const MagicBanner = () => {
           ))}
         </div>
         {/* Arrows */}
-        <div className="arrows">
+        <div className="arrows" style={{marginTop:'50px'}}>
           <button id="prev" onClick={prevSlide}>
             {"<"}
           </button>

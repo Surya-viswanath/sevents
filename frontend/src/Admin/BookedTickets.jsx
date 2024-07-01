@@ -17,8 +17,9 @@ const [Tickets, setTickets] = useState([])
     useEffect(() => {
         const handleItems = async () => {
           try {
-            const response = await axios.get('http://localhost:4000/users');
+            const response = await axios.get('http://localhost:4000/bookings');
             setTickets(response.data);
+            console.log("ticket",Tickets)
           } catch (error) {
             console.error('Error fetching data:', error);
           }

@@ -35,7 +35,8 @@ const findAll = require('../controller/organizer-rqst/FindallRequest');
 const { allUsers, deleteUser } = require('../controller/user/findalluser');
 const allPaymentHistory  = require('../controller/payment/allPaymentHistory');
 const { deleteevent } = require('../controller/Event');
-
+const findall = require('../controller/payment/findAll');
+const {postContact, findcontact} = require('../controller/contact/Contact');
 
 
 const router = express.Router();
@@ -52,11 +53,12 @@ router.route('/token-verify').post(authVerify)
 
 router.route('/order').post(payment)
 router.route('/orders/:email').get(allPaymentHistory)
-router.route('/bookings').get(findAll)
+router.route('/bookings').get(findall)
 // router.route('/orders/:id').get(PaymentHistory)
 
 
-
+router.route('/contact').post(postContact)
+router.route('/contact').get(findcontact) 
 
 
 router.route('/adminlogin').post(adminlogin)

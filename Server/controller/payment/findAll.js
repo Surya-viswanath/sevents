@@ -1,13 +1,15 @@
-import Transaction from "../../modal/Transaction";
+const Transaction = require("../../modal/Transaction");
 
 
-const findAll = async (req, res) => {
+
+const findall = async (req, res) => {
     try {
-        const result = await Transaction.find({ paidStatus: true });
+        // const result = await Transaction.find({ paidStatus: true });
+        const result = await Transaction.find();
         res.send(result)
     } catch (error) {
         return res.send(error);
     }
 }
 
-export default findAll;
+module.exports = findall;

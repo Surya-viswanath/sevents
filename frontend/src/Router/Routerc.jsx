@@ -51,6 +51,8 @@ import Home from '../home/Home'
 import RequestOrganizer from '../Manager/RequestOrganizer'
 import OrganizerRequest from '../Manager/OrganizerRequest'
 import BookedTickets from '../Admin/BookedTickets'
+import PaymentHistory from '../Common/Payment/PaymentHistory'
+import Contact from '../Common/Contact'
 function Routerc() {
   return (
    
@@ -62,7 +64,7 @@ function Routerc() {
 children: [
 
 <Route path='/' element={<><Home/></>}></Route>
-{/* <Route path='/signup' element={<><Menu/><Signup/></>}></Route> */}
+<Route path='/contact' element={<><Contact/></>}></Route>
 <Route path='/login' element={<><Login/></>}></Route>
 <Route path='/register' element={<><Register/></>}></Route>
 <Route path='/request-organizer' element={<><RequestOrganizer/></>}></Route>
@@ -123,13 +125,14 @@ children: [
         {/* <Route path="settings" element={<PrivateRouter><Settings /></PrivateRouter>} /> */}
         {/* <Route path="profile" element={<PrivateRouter><Profile /></PrivateRouter>} /> */}
         <Route path="organizer-request" element={<PrivateRouter><OrganizerRequest/></PrivateRouter>} />
-        <Route path="custom-event-request" element={<AdminRouter><CustomEventDashboard /></AdminRouter>} />
-        <Route path="admin" element={<AdminRouter><DashboardAdminHome /></AdminRouter>} />
+        {/* <Route path="custom-event-request" element={<AdminRouter><CustomEventDashboard /></AdminRouter>} /> */}
+        <Route path="custom-event-request" element={<PrivateRouter><CustomEventDashboard /></PrivateRouter>} />
+        <Route path="admin" element={<PrivateRouter><DashboardAdminHome /></PrivateRouter>} />
         {/* <Route path="wishList" element={<PrivateRouter><Wishlist /></PrivateRouter>} /> */}
         <Route path="customEvent" element={<PrivateRouter><CustomEventUser /></PrivateRouter>} />
         {/* <Route path="my-bookings" element={<PrivateRouter><UserBookings /></PrivateRouter>} /> */}
-        {/* <Route path="payment-history" element={<PrivateRouter><PaymentHistory /></PrivateRouter>} />
-        <Route path="cart" element={<PrivateRouter><Cart /></PrivateRouter>} /> */}
+        <Route path="payment-history" element={<PrivateRouter><PaymentHistory /></PrivateRouter>} />
+        {/* <Route path="cart" element={<PrivateRouter><Cart /></PrivateRouter>} /> */}
         <Route path="all-users" element={<PrivateRouter><AllUsers/></PrivateRouter>} />
         {/* <Route
           path="edit-user/:id"

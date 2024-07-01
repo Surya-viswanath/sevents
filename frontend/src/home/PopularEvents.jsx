@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-// import Lottie from 'lottie-react';
-// import 'swiper/css';
-// import 'swiper/css/free-mode';
-// import 'swiper/css/pagination';
-// import { Pagination } from 'swiper/modules';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import loadingAnimation from "../../assets/animation/animation.json";
-// import Container from '../../components/container/Container';
+
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+
 import Eventcard from '../Common/Eventcard';
 import Container from '../Common/Container';
 // import EventCard from '../allEvents/EventCard';
@@ -15,7 +15,7 @@ import Container from '../Common/Container';
 const PopularEvents = () => {
     const fetchEvents = async () => {
         try {
-          const response = await axios.get("https://dream-craft-server.vercel.app/events");
+          const response = await axios.get("http://localhost:4000/events");
           return response.data; 
         } catch (error) {
           return error.massage;
@@ -52,11 +52,11 @@ const PopularEvents = () => {
                 <div className="flex flex-col md:flex-row items-center gap-4">
                     <div className="w-1/4">
                         <h1 className="text-4xl md:text-center text-[#050C26] font-bold my-6">
-                            Most <span className="text-primary"><br />Popular<br />Events</span>
+                            Most <span style={{color:'#9C0C0D'}}><br />Popular<br />Events</span>
                         </h1>
                     </div>
-                    <div className="w-3/4">
-                        {/* <Swiper
+                    <div className="w-3/4" >
+                        <Swiper
                             slidesPerView={1}
                             spaceBetween={10}
                             pagination={{
@@ -81,7 +81,7 @@ const PopularEvents = () => {
                                 </SwiperSlide>)
                             }
 
-                        </Swiper> */}
+                        </Swiper>
                     </div>
                 </div>
             </Container>

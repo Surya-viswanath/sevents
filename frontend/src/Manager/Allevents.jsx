@@ -262,7 +262,11 @@ const AllEvents = () => {
                                     >
                                         {item?.status === 'rejected' ? 'Rejected' : 'Reject'}
                                     </button> */}
-                                    <MdOutlineDeleteOutline onClick={handleDelete} style={{color:'red'}}/>
+                                    {/* <MdOutlineDeleteOutline onClick={handleDelete(item._id)} style={{color:'red'}}/> */}
+                                    <MdOutlineDeleteOutline 
+    onClick={() => handleDelete(item._id)} 
+    style={{color:'red'}} 
+/>
                                 </td>
                             </tr>
                         ))}
@@ -306,6 +310,9 @@ const AllEvents = () => {
 };
 
 export default AllEvents;
+
+
+
 
 // import {
 //     flexRender,

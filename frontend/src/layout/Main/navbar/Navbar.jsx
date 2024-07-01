@@ -32,12 +32,14 @@ const Navbar = () => {
 
   return (
     <>
-      {/* <TopBar /> */}
+     
       <nav className="flex-no-wrap relative flex w-full items-center justify-between bg-transparent py-2 shadow-md shadow-black/5 md:flex-wrap lg:py-3.5">
         <div className="flex w-full items-center justify-between md:max-w-7xl md:px-12 mx-auto">
+        
           <button
             onClick={() => setCollapse(!collapse)}
-            className="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0  lg:hidden"
+           variant="outline-secondary"
+      className="border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0"
             type="button"
           >
             <FiAlignJustify size={25} />
@@ -70,39 +72,35 @@ const Navbar = () => {
                   Booking
                 </NavLink>
               </li>
+             
               {/* <li>
-                <NavLink to="/schedule" className="border hover:text-primary border-white p-1">
-                  Schedule
-                </NavLink>
-              </li> */}
-              <li>
                 <NavLink to="/shop" className="border hover:text-primary border-white p-1">
                   Shop
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/about" className="border hover:text-primary border-white p-1">
                   About
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/portfolio" className="border hover:text-primary border-white p-1">
                   Portfolio
                 </NavLink>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <NavLink to="/contact" className="border hover:text-primary border-white p-1">
                   Contact
                 </NavLink>
-              </li>
+              </li> */}
 
 
             </ul>
           </div>
-          {/* Right elements */}
+         
           {user ? (
             <div className="relative flex items-center">
-              {/* Second dropdown container */}
+              
               <div className="relative">
                 <img
                   ref={imgRef}
@@ -193,17 +191,19 @@ const Navbar = () => {
               >
                 Login
               </Link>
-              <Link
+              
+               <Link
                 to="/register"
                 type="button"
-                className="mr-3 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary/95 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary/90 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary/90"
-              >
-                Sign Up
+                className="inline-block rounded bg-primary/10 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary/90 transition duration-150 ease-in-out hover:bg-primary/20 focus:bg-primary/30 focus:outline-none focus:ring-0 active:bg-primary/20"
+              style={{width:'100px'}}>
+              Sign Up
               </Link>
             </div>
           )}
         </div>
       </nav>
+
     </>
   );
 };
