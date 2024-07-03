@@ -53,6 +53,7 @@ import OrganizerRequest from '../Manager/OrganizerRequest'
 import BookedTickets from '../Admin/BookedTickets'
 import PaymentHistory from '../Common/Payment/PaymentHistory'
 import Contact from '../Common/Contact'
+import Profile from '../component/Profile'
 function Routerc() {
   return (
    
@@ -123,7 +124,7 @@ children: [
           loader={({ params }) => fetch(`https://dream-craft-server.vercel.app/event/${params.id}`)}
         /> */}
         {/* <Route path="settings" element={<PrivateRouter><Settings /></PrivateRouter>} /> */}
-        {/* <Route path="profile" element={<PrivateRouter><Profile /></PrivateRouter>} /> */}
+        <Route path="profile" element={<PrivateRouter><Profile/></PrivateRouter>} />
         <Route path="organizer-request" element={<PrivateRouter><OrganizerRequest/></PrivateRouter>} />
         {/* <Route path="custom-event-request" element={<AdminRouter><CustomEventDashboard /></AdminRouter>} /> */}
         <Route path="custom-event-request" element={<PrivateRouter><CustomEventDashboard /></PrivateRouter>} />

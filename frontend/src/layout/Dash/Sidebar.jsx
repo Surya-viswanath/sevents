@@ -62,13 +62,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                             path: "/dashboard/customEvent",
                                         }}
                                     />
-                                    <SideBarMenuItem
+                                    {/* <SideBarMenuItem
                                         menu={{
                                             name: "Orders From Shop",
                                             icon: "LuShoppingCart",
                                             path: "/dashboard/cart",
                                         }}
-                                    />
+                                    /> */}
                                     <SideBarMenuItem
                                         menu={{
                                             name: "Payment History",
@@ -87,13 +87,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                             path: "/dashboard/admin",
                                         }}
                                     />
-                                    <SideBarMenuItem
+                                    {/* <SideBarMenuItem
                                         menu={{
                                             name: "Mails",
                                             icon: "LuMailCheck",
                                             path: "/dashboard/all-mails",
                                         }}
-                                    />
+                                    /> */}
                                     <SidebarSubMenu
                                         menu={{
                                             name: "Events",
@@ -176,13 +176,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                             path: "/dashboard/customEvent",
                                         }}
                                     />
-                                    <SideBarMenuItem
+                                    {/* <SideBarMenuItem
                                         menu={{
                                             name: "Orders From Shop",
                                             icon: "LuShoppingCart",
                                             path: "/dashboard/cart",
                                         }}
-                                    />
+                                    /> */}
                                     <SideBarMenuItem
                                         menu={{
                                             name: "Payment History",
